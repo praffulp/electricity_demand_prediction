@@ -30,7 +30,8 @@ class Demand_Model_Predict(APIView):
         y_pred = pd.Series(y_pred)
         print(y_pred)
         # response_dict = {"Predicted Daily Demand": y_pred[0]}
-        response_dict = {"Predicted Daily Demand": y_pred}
+        zip_response_dict = zip(values, y_pred.values)
+        response_dict = dict(zip_response_dict)
         return Response(response_dict, status=200)
 
 
